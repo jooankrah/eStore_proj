@@ -5,9 +5,7 @@ passport    = require("passport")
 LocalStrategy = require("passport-local")
 const hbs = require('hbs')
 require('./db/mongoose')
-const applicantRouter = require('./routers/applicant')
-const credentials = require('./models/credential')
-const Applicant = require('./models/applicant');
+const prouctRouter = require('./routers/product')
 
 
 const app = express()
@@ -32,31 +30,31 @@ app.use(express.static(path.join(__dirname, './files')))
 
 
 
-// PASSPORT CONFIGURATION
-app.use(require("express-session")({
-    secret: "God is the Greatest",
-    resave: false,
-    saveUninitialized: false
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-passport.use(new LocalStrategy({
-    usernameField: 'serial',
-    passwordField: 'pin',
-    },Applicant.authenticate()));
-passport.serializeUser(Applicant.serializeUser());
-passport.deserializeUser(Applicant.deserializeUser());
+// // PASSPORT CONFIGURATION
+// app.use(require("express-session")({
+//     secret: "God is the Greatest",
+//     resave: false,
+//     saveUninitialized: false
+// }));
+// app.use(passport.initialize());
+// app.use(passport.session());
+// passport.use(new LocalStrategy({
+//     usernameField: 'serial',
+//     passwordField: 'pin',
+//     },Applicant.authenticate()));
+// passport.serializeUser(Applicant.serializeUser());
+// passport.deserializeUser(Applicant.deserializeUser());
 
-app.use(function(req, res, next){
-   res.locals.currentUser = req.user;
-   next();
-});
+// app.use(function(req, res, next){
+//    res.locals.currentUser = req.user;
+//    next();
+// });
 
 
 
 
 app.use(express.json())
-app.use(applicantRouter)
+app.use(prouctRouter)
 
 
 app.use(function(req, res, next){
