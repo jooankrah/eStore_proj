@@ -20,7 +20,7 @@ router.get('/products/:id',(req,res)=>{
 
 //render cart page
 router.get('/cart',(req,res)=>{
-    res.send('cart')
+    res.render('cart')
 })
 
 //render checkout page
