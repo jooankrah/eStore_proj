@@ -5,7 +5,9 @@ passport    = require("passport")
 LocalStrategy = require("passport-local")
 const hbs = require('hbs')
 require('./db/mongoose')
-const prouctRouter = require('./routers/product')
+const prouctRouter = require('./routes/apis/product')
+const pagesRouter = require('./routes/pageRoutes')
+const seed = require('./utils/seed')
 
 
 const app = express()
@@ -55,6 +57,7 @@ app.use(express.static(path.join(__dirname, './files')))
 
 app.use(express.json())
 app.use(prouctRouter)
+app.use(pagesRouter)
 
 
 app.use(function(req, res, next){
@@ -76,6 +79,8 @@ app.use(function(req, res, next){
     res.type('txt').send('Not found');
   });
 
+//seed products
+//seed()
 
 
 app.listen(port, () => {
