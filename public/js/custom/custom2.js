@@ -35,7 +35,10 @@ function getCart() {
 
        function getCheckout() {
         const data = JSON.parse(localStorage.getItem('cart'))
+        let totalPrice = 0
         for(var i=0;i<data.length;i++){
+
+         totalPrice += Number(data[i].price.slice(1))
 
         const checkoutItems =  `<tr id= ${data[i].productId}>
                                  <td class="cart_product">
@@ -58,6 +61,7 @@ function getCart() {
                              </tr>`
 
             $('#checkout').after(checkoutItems);
+            $('#total_price').text('$ '+ totalPrice.toString());
        }
     }
 

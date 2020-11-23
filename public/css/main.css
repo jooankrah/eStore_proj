@@ -1538,7 +1538,7 @@ h2.title {
 }
 
 .breadcrumbs .breadcrumb>li+li:before {
-    content: " ";
+    content: " ";
 }
 
 #cart_items .cart_info {
@@ -1603,7 +1603,7 @@ h2.title {
 
 .cart_product {
     display: block;
-    /*  margin: 15px -70px 10px 25px;*/
+    margin: 15px -70px 10px 25px !important;; 
 }
 
 .cart_quantity_button a {
