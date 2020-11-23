@@ -1,4 +1,5 @@
 const express = require('express')
+const { getProduct } = require('../../controllers/product')
 const product = require('../../controllers/product')
 const router = new express.Router()
 
@@ -14,9 +15,7 @@ router.get('/allproducts',(req,res)=>{
 })
 
 //render product page
-router.get('/products/:id',(req,res)=>{
-    res.render('product')
-})
+router.get('/products/:id',getProduct)
 
 //render cart page
 router.get('/cart',(req,res)=>{
@@ -25,7 +24,7 @@ router.get('/cart',(req,res)=>{
 
 //render checkout page
 router.get('/checkout',(req,res)=>{
-    res.send('checkout')
+    res.render('checkout')
 })
 
 
