@@ -19,9 +19,7 @@
                             <img src= ${data[i].Image} alt="image" />
                             <h2>${data[i].Price}</h2>
                             <p>${data[i].Name}</p>
-                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                    </a>   
-                     
+                    </a>                              
                     </div>
                 </div>
             </div>`
@@ -51,7 +49,7 @@ $(document).ready(
         console.log(addedProduct)
     });
 
-$('#addToCart').on('click', function (e) {
+$('.addToCart').on('click', function (e) {
         e.preventDefault()
         const oldcart = JSON.parse(localStorage.getItem("cart"))
         console.log(oldcart)

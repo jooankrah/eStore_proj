@@ -80,7 +80,7 @@ app.use(function(req, res, next){
   });
 
 //seed products
-// seed()
+ seed()
 
 
 app.listen(port, () => {

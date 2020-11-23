@@ -66,7 +66,7 @@ $(document).ready(function () {
     $('.removeItem').on('click', function (e) {
         const data = JSON.parse(localStorage.getItem('cart'))
         e.preventDefault()
-    const toBeremoved = $(this).data('id') 
+    const toBeremoved = $(this).data('id')
 
    // const b = JSON.parse(toBeremoved)
     console.log(toBeremoved)

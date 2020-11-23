@@ -13,19 +13,8 @@ const numberOfProducts = await product.countDocuments({},(err,num)=>{
 })
 
 if (numberOfProducts > 0) {
-    await product.deleteMany({},(err)=>{
-        if (err) {
-            console.log(err)
-        }
-        console.log('All Products deleted')
-    })
-
-    await product.create(data,(err)=>{
-        if (err) {
-            console.log(err)
-        }
-        console.log('Products Seeded')
-   })  
+    
+   return numberOfProducts 
 }
 else{
     await product.create(data,(err)=>{
