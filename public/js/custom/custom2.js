@@ -88,6 +88,11 @@ $(document).ready(function () {
     localStorage.setItem('cart',JSON.stringify(cart))
 
         $(this).closest('tr').remove();
+        $.toast({
+            text : `Item removed to cart`,
+            position:'top-right',
+            icon :'error'
+          })
     })
 });
              
