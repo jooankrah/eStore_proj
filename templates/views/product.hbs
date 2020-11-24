@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{> head }}
+
+
+<body>
+	
+	 {{> menu }}
+	
+	<section>
+		<div class="container">
+			<div class="row">
+				
+<div class="col-sm-12 padding-right">
+    <div id="product" data-id="{{product._id}}" class="product-details"><!--product-details-->
+        <div class="col-sm-5">
+            <div class="view-product">
+                <img id="productImage" src="{{product.Image}}" alt="" />
+            </div>
+
+        </div>
+        <div class="col-sm-7">
+            <div class="product-information"><!--/product-information-->
+                <h2 id="productName">{{product.Name}}</h2>
+                <span>
+                    <span id="productPrice">{{product.Price}}</span>
+                    <label>Quantity:</label>
+                    <input id="quantity" type="text" value="1" />
+                    <button  type="button" class="btn btn-fefault cart addToCart">
+                        <i class="fa fa-shopping-cart"></i>
+                        Add to cart
+                    </button>
+                </span>
+
+                <p><b>Availability:</b> In Stock</p>
+            </div><!--/product-information-->
+        </div>
+    </div><!--/product-details-->
+
+        <div class="col-sm-12" style="margin-bottom: 10px;">
+            <h5>Description</h5>
+            <p>{{product.Description}}</p>              
+        </div>
+
+
+			</div>
+		</div>
+	</section>
+	
+    {{> scripts }}
+
+
+</body>
+</html>

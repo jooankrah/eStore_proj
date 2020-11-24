@@ -1,4 +1,5 @@
 const Product = require('../models/product')
+var mongoose = require('mongoose');
 
 //create a product
 const newProduct =async (req,res)=>{
@@ -27,12 +28,13 @@ const getProducts = async (req,res)=>{
 
 //get a specific product
 const getProduct = async (req,res)=>{
- const product_id = req.params.id
- await Product.findById({id:product_id},(err,product)=>{
+    console.log(req.params.id)
+ await Product.findById(req.params.id,(err,product)=>{
         if (err) {
             res.sendStatus(404)
         } else {
-         return   res.json(product)
+            console.log(product)
+           res.render('product',{product})
         }
  })
 
