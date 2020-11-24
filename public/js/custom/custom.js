@@ -57,7 +57,11 @@ $('.addToCart').on('click', function (e) {
             console.log(oldcart)
             cart = oldcart.concat(addedProduct)   
             localStorage.setItem('cart',JSON.stringify(cart))
- 
+            $.toast({
+                      text : `Item added to cart`,
+                      position:'top-right',
+                      icon :'success'
+                    })
         }else{
             cart.push(addedProduct)
             localStorage.setItem('cart',JSON.stringify(cart))
