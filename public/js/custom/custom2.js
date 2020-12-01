@@ -45,7 +45,7 @@ function getCart() {
         let totalPrice = 0
         for(var i=0;i<data.length;i++){
 
-         totalPrice += Number(data[i].price.slice(1))
+         totalPrice += ((Number(data[i].price.slice(1))) * Number(data[i].quantity))
 
         const checkoutItems =  `<tr id= ${data[i].productId}>
                                  <td class="cart_product">
@@ -63,12 +63,12 @@ function getCart() {
                                      </div>
                                  </td>
                                  <td class="cart_total">
-                                     <p class="cart_total_price">${data[i].price}</p>
+                                     <p class="cart_total_price">$${((Number(data[i].price.slice(1))) * Number(data[i].quantity)).toFixed(2)}</p>
                                  </td>
                              </tr>`
 
             $('#checkout').after(checkoutItems);
-            $('#total_price').text('$ '+ totalPrice.toString());
+            $('#total_price').text('$ '+ totalPrice.toFixed(2));
        }
     }
 
@@ -89,7 +89,7 @@ $(document).ready(function () {
 
         $(this).closest('tr').remove();
         $.toast({
-            text : `Item removed to cart`,
+            text : `Item removed from cart`,
             position:'top-right',
             icon :'error'
           })
