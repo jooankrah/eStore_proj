@@ -6,12 +6,12 @@ const router = new express.Router()
 
 //render index page
 router.get('/',(req,res)=>{
-    res.render('index')
+    res.render('index',{title : 'Home'})
 })
 
 //render products page
 router.get('/allproducts',(req,res)=>{
-    res.render('allProducts')
+    res.render('allProducts', {'title':'All Products'})
 })
 
 //render product page
@@ -19,12 +19,12 @@ router.get('/products/:id',getProduct)
 
 //render cart page
 router.get('/cart',(req,res)=>{
-    res.render('cart')
+    res.render('cart',{'title':'Cart'})
 })
 
 //render checkout page
 router.get('/checkout',(req,res)=>{
-    res.render('checkout')
+    res.render('checkout',{'title': 'Checkout'})
 })
 
 

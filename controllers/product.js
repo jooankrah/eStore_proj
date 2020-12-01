@@ -34,7 +34,7 @@ const getProduct = async (req,res)=>{
             res.sendStatus(404)
         } else {
             console.log(product)
-           res.render('product',{product})
+           res.render('product',{product,'title':product.Name})
         }
  })
 
